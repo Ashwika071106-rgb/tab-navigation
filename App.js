@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Image} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import BookTransactionScreen from './screens/BookTransactionScreen';
-import SearchScreen from './screens/SearchScreen';
+import fbScreen from '../screens/fb';
+import instaScreen from '../screens/ins';
 
 export default class App extends React.Component {
   render(){
@@ -16,24 +16,24 @@ export default class App extends React.Component {
 }
 
 const TabNavigator = createBottomTabNavigator({
-  Transaction: {screen: BookTransactionScreen},
-  Search: {screen: SearchScreen},
+  Facebook: {screen: fbScreen},
+  Instagram: {screen: instaScreen},
   },
   {
   defaultNavigationOptions: ({navigation})=>({
     tabBarIcon: ()=>{
       const routeName = navigation.state.routeName;
-      if(routeName === "Transaction"){
+      if(routeName === "Facebook"){
         return(
           <Image
-            source = {require('./assets/book.png')} 
+            source = {require('./assets/fb.png')} 
             style={{width:40, height:40}}/>
         )
       }
-      else if(routeName === "Search") {
+      else if(routeName === "Instagram") {
         return(
           <Image
-          source={require('./assets/searchingbook.png')}
+          source={require('./assets/insta.png')}
           style={{width:40, height:40}} />
         )
       }
